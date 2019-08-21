@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Username: {{object.username}}</h1>
+    <h2>Birthday: {{object.birthday|date:"m/d/Y"}}</h2>
+    <a href="{% url 'accounts:user_update' pk=object.pk %}">Edit</a>
+    <a href="{% url 'accounts:user_delete' pk=object.pk %}">Delete</a>
+{% endblock %}

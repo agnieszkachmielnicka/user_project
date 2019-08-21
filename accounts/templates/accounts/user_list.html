@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load custom_tags %}
+{% block content %}
+    <table>
+        <thead>
+            <th>Username</th>
+            <th>Birthday</th>
+            <th>Eligible</th>
+            <th>Random Number</th>
+            <th>BizzFuzz</th>
+        </thead>
+    {% for user in object_list %}
+        <tr>
+            <td><a href="{% url 'accounts:user_detail' pk=user.pk %}">{{ user.username }}</a></td>
+            <td>{{ user.birthday|date:"m/d/Y" }}</td>
+            <td>{{ user.birthday|if_allowed }}</td>
+            <td>{{ user.random_field }}</td>
+            <td>{{ user.random_field|if_bizzfuzz }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    <a href="{% url 'accounts:generate_csv' %}">Download results</a>
+{% endblock %}
