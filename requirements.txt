@@ -3,4 +3,4 @@ django-object-tools==2.0.0
 django-south-admin==0.0.3
 pytz==2019.2
 South==1.0.2
-sqlparse==0.3.0
+sqlparse==0.4.4
